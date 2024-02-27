@@ -7,7 +7,6 @@ import { useGitHubContext } from "../Context";
 
 function GeneralView(): JSX.Element {
   const { loading, error } = useGitHubContext();
-  console.log(error);
   return (
     <section className="text-white h-full p-5 md:p-16">
       <Header />
