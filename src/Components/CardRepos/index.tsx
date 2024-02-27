@@ -43,7 +43,7 @@ function CardRepos({
             </p>
           )}
 
-          {stars && (
+          {stars !==null && stars > 0 && (
             <p className="flex items-center xl:gap-1">
               <FaStar color="yellow" />
               {stars}

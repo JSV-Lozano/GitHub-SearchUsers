@@ -1,20 +1,12 @@
 import { useState } from "react";
-import { UserRepositories } from "../repositories";
-import { Followers, Repositories } from "../../types/GitHubApiTypes";
+import { UserRepositories } from "../Repositories";
 import { UserFollowers } from "../Followers";
 
-type OtherInfo = {
-  repositories: Repositories | undefined;
-  followers: Followers | undefined;
-  loading: boolean;
-};
 
-function UserOtherInfo({
-  repositories,
-  followers,
-  loading,
-}: OtherInfo): JSX.Element {
+
+function UserOtherInfo(): JSX.Element {
   const [activeTab, setActiveTab] = useState<string>("Repositories");
+
   const handleClickTab =
     (tab: string): React.MouseEventHandler<HTMLButtonElement> =>
     () => {
@@ -47,18 +39,8 @@ function UserOtherInfo({
         </ul>
       </nav>
       <section>
-        {activeTab === "Repositories" && (
-          <UserRepositories
-            repositories={repositories}
-            loading={loading}
-          />
-        )}
-        {activeTab === "Followers" && (
-          <UserFollowers
-            followers={followers}
-            loading={loading}
-          />
-        )}
+        {activeTab === "Repositories" && <UserRepositories />}
+        {activeTab === "Followers" && <UserFollowers />}
       </section>
     </section>
   );

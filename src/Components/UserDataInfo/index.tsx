@@ -1,13 +1,11 @@
+import { useGitHubContext } from "../../Context";
+import { Anchor } from "../Anchor";
 import { FaLocationArrow } from "react-icons/fa6";
 import { BsBuilding } from "react-icons/bs";
-import { FaTwitter } from "react-icons/fa";
-import { APIGitHub } from "../../types/GitHubApiTypes";
-import { Anchor } from "../Anchor";
-
-type Props = {
-  userData: APIGitHub | null | undefined;
-};
-function UserDataInfo({ userData }: Props) {
+import { FaTwitter, FaUserFriends } from "react-icons/fa";
+import { RiGitRepositoryLine } from "react-icons/ri";
+function UserDataInfo() {
+  const { userData } = useGitHubContext();
   return (
     <section className="text-white xl:w-[50%] h-full flex flex-col gap-5">
       <picture className="w-full flex justify-center xl:justify-start">
@@ -38,25 +36,28 @@ function UserDataInfo({ userData }: Props) {
         <div className="mt-3 flex flex-col gap-3">
           {userData?.company && (
             <p className="text-xl flex items-center gap-2">
-              <BsBuilding />
+              <BsBuilding color="#DC2626" />
               {userData?.company}
             </p>
           )}
           {userData?.twitter_username && (
             <p className="text-xl flex items-center gap-2">
-              <FaTwitter />
+              <FaTwitter color="#DC2626" />
               {`@${userData?.twitter_username}`}
             </p>
           )}
         </div>
         <div className="mb-3 flex flex-col gap-1">
-          <p className="text-lg text-gray-300">
+          <p className="text-lg text-gray-300 flex items-center gap-2">
+            <RiGitRepositoryLine color="#DC2626" />
             {userData?.public_repos} Repos
           </p>
-          <p className="text-lg text-gray-300">
+          <p className="text-lg text-gray-300 flex items-center gap-2">
+            <FaUserFriends color="#DC2626" />
             {userData?.followers} Followers
           </p>
-          <p className="text-lg text-gray-300">
+          <p className="text-lg text-gray-300 flex items-center gap-2">
+            <FaUserFriends color="#DC2626" />
             {userData?.following} Following
           </p>
         </div>

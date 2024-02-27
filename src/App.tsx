@@ -1,10 +1,13 @@
-import { GeneralView } from "../src/view/generalView";
+import { GeneralView } from "./view/GeneralView";
+import { GitHubContextProvider } from "./Context";
 
 function App() {
   return (
-    <section className="h-screen">
-      <GeneralView />
-    </section>
+    <GitHubContextProvider>
+      <section className="h-screen">
+        <GeneralView />
+      </section>
+    </GitHubContextProvider>
   );
 }
 
