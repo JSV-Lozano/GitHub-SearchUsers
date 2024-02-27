@@ -1,22 +1,11 @@
-// import { useEffect,} from "react";
-// import axios from "axios";
+import { GeneralView } from "../src/view/generalView";
 
 function App() {
-  // useEffect(() => {
-  //   async function getData() {
-  //     try {
-  //       const response = await axios.get(
-  //         "https://api.github.com/users/JSV-Lozano"
-  //       );
-  //       console.log(response);
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   }
-  //   getData();
-  // });
-
-  return <section className="bg-black h-screen"></section>;
+  return (
+    <section className="h-screen">
+      <GeneralView />
+    </section>
+  );
 }
 
 export default App;
